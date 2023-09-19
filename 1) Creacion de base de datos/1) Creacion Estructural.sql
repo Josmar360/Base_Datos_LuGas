@@ -5,194 +5,177 @@ SET SQL_SAFE_UPDATES = 0;
 drop schema LuGas;
 
 -- Creacion de tablas para base de datos
--- Creacion de tabla Clientes
-CREATE TABLE Clientes
-(
-  Nombre VARCHAR(50) NOT NULL,
-  ApePaterno VARCHAR(50) NOT NULL,
-  ApeMaterno VARCHAR(45) NOT NULL,
-  NomCalle VARCHAR(45) NOT NULL,
-  NumCalle INT NOT NULL,
-  NomColonia VARCHAR(45) NOT NULL,
-  NomEstado VARCHAR(45) NOT NULL,
-  RFCNom VARCHAR(4) NOT NULL,
-  RFCFecha DATE NOT NULL,
-  NumTelefono VARCHAR(10) NOT NULL,
-  Correo VARCHAR(45) NOT NULL,
-  CONSTRAINT Clientes PRIMARY KEY
-  (
-	RFCNom,
-    RFCFecha
-  )
-);
--- Crea un índice único compuesto en las columnas columna1 y columna2
-CREATE UNIQUE INDEX ID_Cliente
-ON Clientes (RFCNom, RFCFecha);
-
-
--- Creacion de tabla Personal
-CREATE TABLE Personal
-(
-	NombreEmp VARCHAR(50) NOT NULL,
-    ApePaterno VARCHAR(50) NOT NULL,
-    ApeMaterno VARCHAR(50) NOT NULL,
-    Puesto VARCHAR(45) NOT NULL,
-    Edad INT NOT NULL,
-    NomCalle VARCHAR(50) NOt NULL,
-    NumCalle INT NOT NULL,
-    NomColonia VARCHAR(50) NOT NULL,
-    NomEstado VARCHAR(50) NOT NULL,
-    NumCP INT NOT NULL,
-    NomAlcaldia VARCHAR(50) NOT NULL,
-    Sueldo FLOAT(10) NOT NULL, 
-    NumTelefono VARCHAR(10) NOT NULL,
-    RFCNomEmpl VARCHAR(4) NOT NULL,
-    RFCFechaEmpl DATE NOT NULL,
-    Activo BOOLEAN NOT NULL,
-    CONSTRAINT Personal PRIMARY KEY
-    (
-		RFCNomEmpl,
-        RFCFechaEmpl
-    )
-);
-
-
--- Creacion de tabla Ventas
-CREATE TABLE Ventas
-(
-	Material_Venta VARCHAR(50) NOT NULL,
-    Fecha_Venta DATE NOT NULL,
-    Cantidad INT NOT NULL,
-    Precio_Unitario FLOAT(10) NOT NULL,
-    Sub_Total FLOAT(10) NOT NULL,
-    IVA FLOAT(10) NOT NULL,
-    Total_Pagar FLOAT(10) NOT NULL,
-    CFDI VARCHAR(50) NOT NULL,
-    Metodo_Pago TINYINT NOT NULL,
-	FK_RFCNom_Cliente VARCHAR(4) NOT NULL,
-    FK_RFCFecha_Cliente DATE NOT NULL,
-    FK_RFCNom_Empleado VARCHAR(4) NOT NULL,
-    FK_RFCFecha_Empleado DATE NOT NULL,
-    CONSTRAINT Ventas PRIMARY KEY
-    (
-		Material_Venta
-    )
-);
-
--- Agregar una llave foránea en tabla_hija que hace referencia a la clave única compuesta en tabla_padre
-ALTER TABLE Ventas ADD CONSTRAINT FK_Cliente FOREIGN KEY (FK_RFCNom_Cliente, FK_RFCFecha_Cliente) REFERENCES Clientes (RFCNom, RFCFecha);
-ALTER TABLE Ventas ADD CONSTRAINT FK_Empleado FOREIGN KEY (FK_RFCNom_Empleado, FK_RFCFecha_Empleado)  REFERENCES Personal (RFCNomEmpl, RFCFechaEmpl);
-
-ALTER TABLE Ventas ADD CONSTRAINT FK_RFCNom_Cliente FOREIGN KEY (FK_RFCNom_Cliente) REFERENCES Clientes(RFCNom);
-ALTER TABLE Ventas ADD CONSTRAINT FK_RFCFecha_Cliente foreign key(FK_RFCFecha_Cliente) REFERENCES Clientes(RFCFecha);
-ALTER TABLE Ventas ADD CONSTRAINT RFC_NomEmpleado_FK foreign key(FK_RFCNom_Empleado) REFERENCES Personal(RFCNomEmpl);
-ALTER TABLE Ventas ADD CONSTRAINT RFC_FecEmpleado_FK foreign key(FK_RFCFecha_Empleado) REFERENCES Personal(RFCFechaEmpl);
-
-
--- Creacion de tabla Existencias
+-- Creacion de tabla existencias
 CREATE TABLE Existencias
 (
 	ID_Existencias INT NOT NULL,
     Existencias INT NOT NULL,
-    Fecha_Ex DATE NOT NULL,
     Nom_Prod VARCHAR(50) NOT NULL,
-    Fecha_Inv DATE NOT NULL,
-    Cantidad INT NOT NULL,
-    Totales INT NOT NULL,
     Desp_ob INT NOT NULL,
-    TotalF INT NOT NULL,
-    Observaciones VARCHAR(50) NOT NULL,
-    CONSTRAINT Existencias PRIMARY KEY
+    CONSTRAINT PRIMARY KEY
     (
 		ID_Existencias
-    )
+	)
 );
 
 
--- Creacion de tabla Proveedores
+-- Creacion de tabla Inventario
+CREATE TABLE Inventario
+(
+	IDInventario INT NOT NULL,
+    Fecha_Inv DATE NOT NULL,
+    Observaciones VARCHAR(45) NOT NULL,
+    ExistenciasF INT NOT NULL,
+    FK_Existencias_ID_Existencias INT NOT NULL,
+    CONSTRAINT PRIMARY KEY
+    (
+		IDInventario
+    )
+);
+
+ALTER TABLE Inventario ADD CONSTRAINT FK_Existencias FOREIGN KEY (FK_Existencias_ID_Existencias) REFERENCES Existencias (ID_Existencias);
+
+
+-- Crear tabla Proveedores
 CREATE TABLE Proveedores
 (
 	RFCNom VARCHAR(50) NOT NULL,
     RFCFecha DATE NOT NULL,
     Telefono_Contacto VARCHAR(10) NOT NULL,
     Nombre_rep VARCHAR(50) NOT NULL,
-    ApePaterno_Rep VARCHAR(50) NOT NULL,
-    ApeMaterno_Rep VARCHAR(50) NOT NULL,
-    CONSTRAINT Proveedores PRIMARY KEY 
+    Ape_Paterno_Rep VARCHAR(50) NOT NULL,
+    Ape_Materno_Rep VARCHAR(50) NOT NULL,
+    CONSTRAINT PRIMARY KEY
     (
 		RFCNom,
         RFCFecha
     )
 );
-  
-  
--- Creacion de tabla Compras
-CREATE TABLE Compras 
+
+
+-- Crear tabla Compras
+CREATE TABLE Compras
 (
 	IDCompras VARCHAR(50) NOT NULL,
-    Proveedor VARCHAR(50) NOT NULL,
-    Descripcion VARCHAR(90) NOT NULL,
-    Cantidad INT NOT NULL,
-    Precio_Unitario FLOAT(10) NOT NULL,
-    Sub_Total FLOAT(10) NOT NULL,
-    Iva FLOAT(10) NOT NULL,
-    Total FLOAT(10) NOT NULL,
+    Sub_Total FLOAT NOT NULL,
+    Iva FLOAT NOT NULL,
+    Total FLOAT NOT NULL,
     Fecha_Pedido DATE NOT NULL,
     Fecha_Entrega DATE NOT NULL,
-    CONSTRAINT Compras PRIMARY KEY 
+    FK_RFC_Nom_Proveedor VARCHAR(50) NULL,
+    FK_RFC_Fecha_Proveedor DATE NULL,
+    CONSTRAINT PRIMARY KEY
     (
 		IDCompras
     )
 );
 
+ALTER TABLE Compras ADD CONSTRAINT FK_Proveedores FOREIGN KEY (FK_RFC_Nom_Proveedor, FK_RFC_Fecha_Proveedor) REFERENCES Proveedores (RFCNom, RFCFecha);
 
--- Creacion de tabla Instalacion
-CREATE TABLE Instalacion
-(
-	Modelo_Instalar VARCHAR(10) NOT NULL,
-    Matricula_Unidad VARCHAR(10) NOT NULL,
-    Modelo INT NOT NULL,
-    Marca VARCHAR(20) NOT NULL,
-    Cilindros VARCHAR(10) NOT NULL,
-    FK_RFC_Nombre_Cliente VARCHAR(45) NOT NULL,
-    FK_RFC_Fecha_Cliente DATE NOT NULL,
-    CONSTRAINT Instalacion PRIMARY KEY
-    (
-		Modelo
-    )
-);
-
-ALTER TABLE Instalacion ADD CONSTRAINT FK_Clientes FOREIGN KEY (FK_RFC_Nombre_Cliente, FK_RFC_Fecha_Cliente) REFERENCES Clientes (RFCNom, RFCFecha);
-
-
--- Creacion de tabla Material_Comprado
+-- Creacion de tabla Material Comprado
 CREATE TABLE Material_Comprado
 (
-	Folio_Compra VARCHAR(10) NOT NULL,
-    Cantidad INT NOT NULL,
-    Precio_Unitario FLOAT(10) NOT NULL,
-    Sub_Total FLOAT(10) NOT NULL,
-    FK_IDCompras VARCHAR(50) NOT NULL,
-    CONSTRAINT Material_Comprado PRIMARY KEY
+	Cantidad INT NOT NULL,
+    Precio_Unitario FLOAT NOT NULL,
+    Sub_Total FLOAT NOT NULL,
+    FK_ID_Compras VARCHAR(50) NOT NULL,
+    FK_ID_Existencias INT NOT NULL,
+    CONSTRAINT PRIMARY KEY
     (
-		Folio_Compra
+		FK_ID_Compras,
+        FK_ID_Existencias
     )
 );
 
-ALTER TABLE Material_Comprado ADD CONSTRAINT FK_Compras FOREIGN KEY (FK_IDCompras) REFERENCES Compras(IDCompras);
+ALTER TABLE Material_Comprado ADD CONSTRAINT FK_Existencias_Compras FOREIGN KEY (FK_ID_Existencias) REFERENCES Existencias (ID_Existencias);
+ALTER TABLE MAterial_Comprado ADD CONSTRAINT FK_Material_Compras FOREIGN KEY (FK_ID_Compras) REFERENCES Compras (IDCompras);
 
 
--- Creacion de tabla Material_Vendido
-CREATE TABLE Material_Vendido
+-- Crear tabla clientes
+CREATE TABLE Clientes
 (
-	Materia_Ven VARCHAR(50) NOT NULL,
-    Codigo INT NOT NULL,
-    FK_RFC_Nombre_Cliente VARCHAR(45) NOT NULL,
-    FK_RFC_Fecha_Cliente DATE NOT NULL,
-    CONSTRAINT Materia_Vendido PRIMARY KEY
+	RFCNom VARCHAR(4) NOT NULL,
+    RFCFecha DATE NOT NULL,
+    Nombre VARCHAR(50) NOT NULL,
+    Ape_Paterno VARCHAR(50) nOT NULL,
+    Ape_Materno VARCHAR(50) NOT NULL,
+    Nom_Calle VARCHAR(45) NOT NULL,
+    Num_CAlle INT NOT NULL,
+    Nom_Colonia VARCHAR(45) NOT NULL,
+    Nom_Estado VARCHAR(45) NOT NULL,
+    Num_Telefono VARCHAR(10) NOT NULL,
+    Correo VARCHAR(45) NOT NULL,
+    CONSTRAINT PRIMARY KEY
     (
-		Codigo
+		RFCNom,
+        RFCFecha
     )
 );
 
-ALTER TABLE Material_Vendido ADD CONSTRAINT FK_Clientes_Material FOREIGN KEY (FK_RFC_Nombre_Cliente, FK_RFC_Fecha_Cliente) REFERENCES Clientes (RFCNom, RFCFecha);
+
+-- Crear tabla 
+CREATE TABLE Personal
+(
+	RFCNombre VARCHAR(45) NOT NULL,
+	RFCFecha DATE NOT NULL,
+	NombreEmp VARCHAR(50) NOT NULL,
+    Ape_Paterno VARCHAR(50) NOT NULL,
+    Ape_Materno VARCHAR(50) NOT NULL,
+    Puesto VARCHAR(50) NOT NULL,
+    Edad INT NOT NULL,
+    NomCalle VARCHAR(50) NOT NULL,
+    NumCalle INT NOT NULL,
+    NomColonia VARCHAR(50) NOT NULL,
+    NomEstado VARCHAR(50) NOT NULL,
+    NumCP INT NOT NULL,
+    NomAlcaldia VARCHAR(50) NOT NULL,
+    Sueldo FLOAT NOT NULL,
+    Telefono VARCHAR(10) NOT nULL,
+    CONSTRAINT PRIMARY KEY
+    (
+		RFCNombre,
+        RFCFecha
+    )
+);
+
+
+-- Crear tabla Ventas
+CREATE TABLE Ventas
+(
+	FolioVenta INT NOT NULL,
+	Fecha_Venta DATE NOT NULL,
+    Sub_Total FLOAT NOT NULL,
+    IVA FLOAT NULL NULL,
+    Total_Pagar FLOAT NOT NULL,
+    Metodo_Pago TINYINT NOT NULL,
+    FK_RFC_Nom_Emp VARCHAR(4) NOT NULL,
+    FK_RFC_Fecha_Emp DATE NOT NULL,
+    FK_RFC_Nom_Cliente VARCHAR(4) NULL,
+    FK_RFC_Fecha_Cliente DATE NULL,
+    CONSTRAINT PRIMARY KEY
+    (
+		FolioVenta
+    )
+);
+
+ALTER TABLE Ventas ADD CONSTRAINT FK_Clientes FOREIGN KEY (FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente) REFERENCES Clientes (RFCNom, RFCFecha);
+ALTER TABLE Ventas ADD CONSTRAINT FK_Personal FOREIGN KEY (FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp) REFERENCES Personal (RFCNombre, RFCFecha);
+
+
+-- Crear tabla Material_Vendid
+CREATE TABLE Material_Vendido 
+(
+	Cantidad INT NOT NULL,
+    PrecioV FLOAT NOT NULL,
+    Subtotal FLOAT NOT NULL,
+    FK_ID_Existencias INT NOT NULL,
+    FK_Folio_Venta INT NOT NULL,
+    CONSTRAINT PRIMARY KEY
+    (
+		FK_ID_Existencias,
+        FK_Folio_Venta
+    )
+);
+
+ALTER TABLE Material_Vendido ADD CONSTRAINT FK_Existencias_Material FOREIGN KEY (FK_ID_Existencias) REFERENCES Existencias (ID_Existencias);
+ALTER TABLE Material_Vendido ADD CONSTRAINT FK_Ventas_Material FOREIGN KEY (FK_Folio_Venta) REFERENCES Ventas (FolioVenta);
