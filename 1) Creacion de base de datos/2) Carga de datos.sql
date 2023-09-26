@@ -84,28 +84,6 @@ SELECT COUNT(*) FROM Personal;
 SELECT * FROM Personal;
 
 
--- Carga de datos de la tabla de Ventas
-INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
-VALUES (001, '2022-06-25');
-ins('solenoide',,2,360,720,115,835,'gastos en general','efectivo');
-insert into ventas values ('inyector KP','2022-06-25',1,1500,1500,240,1740,'gastos en general','efectivo');
-insert into ventas values ('repuesto p mezclador CA55','2022-06-25',10,370,3700,592,4292,'gastos en general','transaccion');
-insert into ventas values ('filtro infertil','2022-06-22',5,110,550,88,638,'gastos en general','tarjeta');
-insert into ventas values ('toma remota','2022-06-27',3,460,1380,220,1600,'gastos en general','tarjeta');
-insert into ventas values ('filtro de gas','2022-07-01',4,370,1480,236,1714,'gastos en general','tarjeta');
-insert into ventas values ('boquillas','2022-07-01',8,65,520,83,603,'gastos en general','tarjeta');
-insert into ventas values ('cuerpo de aceleracion','2022-07-02',2,1550,3100,496,3596,'adquisicion de materiales','efectivo');
-insert into ventas values ('valvula solenoide','2022-07-03',1,300,300,48,348,'gastos en general','efectivo');
-insert into ventas values ('ligas de inyector','2022-07-03',6,120,720,115,835,'gastos en general','efectivo');
-insert into ventas values ('cuerpo aceleracion','2022-07-03',1,1550,1550,248,1798,'gastos en general','efectivo');
-insert into ventas values ('filtro de aire','2022-07-03',2,130,260,41,301,'gastos en general','efectivo');
-insert into ventas values ('codos 1/2 ntp a 1/2 fier','2022-07-05',10,15,150,24,174,'gastos en general','efectivo');
-insert into ventas values ('flotador 16p','2022-07-06',3,120,360,57,417,'adquisicion de materiales','tarjeta');
-insert into ventas values ('valvula de vacio','2022-07-06',8,360,2880,460,3340,'gastos en general','transferencia');
-insert into ventas values ('conexiones hembra','2022-07-07',5,270,1350,216,1566,'gastos en general','efectivo');
-insert into ventas values ('Tanque 100 Lts, valvulas a la cabeza','2022-07-07',1,7700,7700,1232,8932,'gastos en general','efectivo');
-
-
 -- Carga de datos en la tabla de proveedores
 INSERT INTO Proveedores (RFCNom, RFCFecha, Telefono_Contacto, Nombre_rep, Ape_Paterno_Rep, Ape_Materno_Rep)
 VALUES ('TAS', '1986-10-12', '556359575', 'Pedro', 'Jimenez', 'Sanches');
@@ -202,3 +180,368 @@ INSERT INTO Compras (IDCompras, Sub_Total, Iva, Total, Fecha_Pedido, Fecha_Entre
 VALUES (38, 15000, 2400, 17400, '2022-04-25', '2022-05-01', 'GAS', '1969-02-03');
 INSERT INTO Compras (IDCompras, Sub_Total, Iva, Total, Fecha_Pedido, Fecha_Entrega, FK_RFC_Nom_Proveedor, FK_RFC_Fecha_Proveedor)
 VALUES (39, 3600, 576, 4176, '2022-04-25', '2022-05-01', 'ITF', '1968-04-29');
+
+SELECT COUNT(*) FROM Compras;
+SELECT * FROM Compras;
+
+
+-- Carga de datos de existencias
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('398548', '7', 'Abrazadera p/vapor', '64');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('200119', '8', 'Boquillas', '120');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('286089', '19', 'Codos 1/2 ntp a 1/2 fler', '74');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('200031', '1', 'Conexiones Hembra', '95');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('379090', '3', 'Conexiones Macho', '61');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('688016', '8', 'Coples 3/8 ntp a 1/4 fler', '130');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('351552', '13', 'Cuerpo de Aceleracion', '84');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('321405', '5', 'Equipo completo de inyeccion 4CIL', '64');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('286229', '1', 'Equipo completo de inyeccion 6CIL', '109');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('396450', '19', 'Equipo completo de inyeccion 8CIL', '118');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('120537', '8', 'Filtro de aire', '117');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('201711', '4', 'Filtro de gas', '82');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('111704', '12', 'Filtro Interfil', '22');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('161022', '12', 'Flotador de 16"', '41');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('402951', '19', 'Inyector KP', '128');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('938868', '9', 'Kit de mangueras p/4CIL', '62');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('414293', '13', 'Kit de mangueras p/6CIL', '63');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('698083', '6', 'Kit de mangueras p/8CIL', '60');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('911738', '17', 'Ligas de inyector', '87');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('696399', '4', 'Manguera de 1 Pul', '12');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('817956', '6', 'Manguera de Agua', '122');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('244337', '13', 'Manguera de Alta', '74');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('864013', '8', 'Mezcaldor CA55', '60');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('531134', '14', 'Mezclador CA100', '116');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('155300', '19', 'Repuesto p/ mezclador CA55', '50');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('200394', '18', 'Repuesto p/mezclador CA100', '124');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('695767', '18', 'Riel de inyector', '102');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('933665', '11', 'Solenoide', '84');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('132457', '8', 'Tanque 100 Lts, valvulas a la cabeza', '8');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('535769', '11', 'Tanque 120 Lts, valvulas al cuepo', '67');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('452363', '9', 'Tanque 150 Lts, valvulas al cuerpo', '19');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('916009', '5', 'Tanque est mod 180 h vals inds l', '64');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('771207', '2', 'Toma remota', '109');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('380851', '13', 'Valvula de vacio', '137');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('296906', '13', 'Valvula Solenoide', '23');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('966753', '5', 'Vaporizador 4CIL', '144');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('518171', '1', 'Vaporizador Cobra', '17');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('344952', '3', 'Vaporizador JB', '133');
+INSERT INTO Existencias (ID_Existencias, Existencias, Nom_Prod, Desp_ob)
+VALUES ('562549', '5', 'Vaporizador LB', '45');
+
+SELECT COUNT(*) FROM Compras;
+SELECT * FROM Compras;
+
+
+-- Carga de datos en la tabla de inventario
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('1', '2022-01-20',' ', '6', '398548');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('2', '2022-01-20', ' ', '10', '200119'); 
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('3', '2022-01-20', ' ', '15', '286089');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('4', '2022-01-20', ' ', '10', '200031');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('5', '2022-01-20', 'manguera picada', '40', '379090');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('6', '2022-01-20', ' ', '50', '688016');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('7', '2022-01-20', ' ', '50', '351552');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('8', '2022-01-20', 'daños en empaque, contenido en buen estado', '30', '321405');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('9', '2022-01-20', 'fecha caduca', '35', '286229');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('10', '2022-01-20', ' ', '50', '396450');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('11', '2022-01-20', ' ', '50', '120537');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('12', '2022-01-20', ' ', '60', '201711');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('13', '2022-01-20', 'empaque dañado', '100', '111704');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('14', '2022-01-20', 'empaque dañado', '100', '161022');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('15', '2022-01-20', ' ', '15', '402951');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('16', '2022-01-20', ' ', '10', '938868');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('17', '2022-01-20', ' ', '10', '414293');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('18', '2022-01-20', 'faltan tornillos', '50', '698083');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('19', '2022-01-20', 'repuesto roto', '50', '911738');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('20', '2022-01-20', ' ', '10', '696399');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('21', '2022-01-20', ' ', '15', '817956');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('22', '2022-01-20', ' ', '5', '244337');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('23', '2022-01-20', 'faltante piezas', '90', '864013');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('24', '2022-01-20', 'faltante piezas', '150', '531134');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('25', '2022-01-20', 'faltante piezas', '80', '155300');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('26', '2022-01-20', 'faltante piezas', '90', '200394');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('27', '2022-01-20', 'daños en empaque', '80', '695767');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('28', '2022-01-20', 'daños en empaque', '150', '933665');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('29', '2022-01-20', ' ', '30', '132457');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('30', '2022-01-20', 'ligas rotas', '100', '535769');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('31', '2022-01-20', 'no ajustable', '50', '452363');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('32', '2022-01-20', 'falante cobertura', '200', '916009');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('33', '2022-01-20', 'empaques dañados, contenido en mal estado', '500', '771207');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('34', '2022-01-20', ' ', '50', '380851');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('35', '2022-01-20', ' ', '100', '296906');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('36', '2022-01-20', ' ', '30', '966753');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('37', '2022-01-20', 'con daños ', '60', '518171');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('38', '2022-01-20', ' ', '150', '344952');
+INSERT INTO Inventario (IDInventario, Fecha_Inv, Observaciones, ExistenciasF, FK_Existencias_ID_Existencias)
+VALUES ('39', '2022-01-20', 'reloj roto', '30', '562549');
+
+SELECT COUNT(*) FROM Compras;
+SELECT * FROM Compras;
+
+
+-- Carga de datos en la tabla de material comprado
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('6', '10000', '60000', '1', '200119');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('10', '7500', '75000', '2', '286089');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('15', '8600', '129000', '3', '200031');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('10', '8000', '80000', '4', '379090');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('40', '125', '5000', '5', '688016');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '150', '7500', '6', '351552');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '220', '11000', '6', '321405');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '260', '7800', '8', '286229');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('35', '320', '11200', '9', '396450');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '15', '750', '10', '120537');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '13', '650', '11', '201711');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('60', '20', '1200', '12', '111704');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('100', '350', '35000', '13', '161022');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('100', '280', '28000', '14', '402951');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('15', '1500', '22500', '15', '938868');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('10', '4500', '45000', '16', '414293');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('10', '5600', '56000', '17', '698083');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '350', '17500', '18', '911738');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '380', '19000', '19', '696399');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('10', '8600', '86000', '20', '817956');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('15', '8500', '127500', '21', '244337');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('5', '9600', '48000', '22', '864013');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('90', '15000', '1350000', '23', '531134');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('150', '17000', '2550000', '24', '155300');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('80', '20000', '1600000', '25', '200394');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('90', '2500', '225000', '26', '695767');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('80', '3000', '240000', '27', '933665');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('150', '2750', '412500', '28', '132457');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '450', '13500', '29', '535769');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('100', '120', '12000', '30', '452363');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('50', '200', '10000', '31', '916009');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('200', '1500', '300000', '32', '771207');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('500', '60', '30000', '33', '380851');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('5', '6000', '30000', '34', '296906');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('100', '356', '35600', '35', '966753');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '36', '518171');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('60', '360', '21600', '37', '344952');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('150', '100', '15000', '38', '562549');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '39', '344952');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '9', '344952');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '12', '344952');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '25', '344952');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '6', '344952');
+INSERT INTO material_comprado (Cantidad, Precio_Unitario, Sub_Total, FK_ID_Compras, FK_ID_Existencias)
+VALUES ('30', '120', '3600', '33', '344952');
+
+SELECT COUNT(*) FROM Material_Comprado;
+SELECT * FROM Material_Comprado;
+
+
+-- Carga de datos en la tabla de ventas
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('1', '2022-06-25', '720', '115.2', '835.2', '1', 'VADF', '1995-12-30', 'RORM', '1961-12-20');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('2', '2022-06-25', '1500', '240', '1740', '2', 'VADF', '1995-12-30', 'MASL', '1985-09-16');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('3', '2022-06-25', '3700', '592', '4292', '1', 'VADF', '1995-12-30', 'CCO', '1982-05-07');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('4', '2022-06-26', '550', '88', '638', '3', 'TORM', '1980-05-06', 'FDM', '1999-11-25');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('5', '2022-06-27', '1380', '220.8', '1600.8', '2', 'TORM', '1980-05-06', 'SAPS', '1967-05-29');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('6', '2022-07-01', '1480', '236.8', '1716.8', '1', 'TORM', '1980-05-06', 'POLJ', '1999-09-05');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('7', '2022-07-01', '520', '83.2', '603.2', '3', 'SAGA', '1992-03-27', 'PATG', '1955-08-03');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('8', '2022-07-02', '3100', '496', '3596', '2', 'SAGA', '1992-03-27', 'DEGO', '1970-08-18');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('9', '2022-07-03', '300', '48', '348', '1', 'SAGA', '1992-03-27', 'PATG', '1955-08-03');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('10', '2022-07-03', '720', '115.2', '835.2', '3', 'LUJA', '1982-10-10', 'GERM', '1975-03-27');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('11', '2022-07-03', '1550', '248', '1798', '3', 'LUJA', '1982-10-10', 'CAME', '1981-08-03');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('12', '2022-07-05', '260', '41.6', '301.6', '1', 'LUJA', '1982-10-10', 'GJU', '1980-12-08');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('13', '2022-07-06', '150', '24', '174', '2', 'GACI', '1987-05-06', 'RIAS', '1994-12-28');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('14', '2022-07-06', '360', '57.6', '417.6', '1', 'GACI', '1987-05-06', 'GERM', '1975-03-27');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('15', '2022-07-09', '2880', '460.8', '3340.8', '1', 'GACI', '1987-05-06', 'BACA', '1995-12-05');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('16', '2022-07-09', '1350', '216', '1566', '2', 'CEHJ', '1983-12-15', 'MARD', '1967-07-09');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('17', '2022-07-25', '7700', '1232', '8932', '2', 'CEHJ', '1983-12-15', 'DDG', '1990-02-08');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('18', '2022-07-25', '8853.44', '1416.55', '10269.99', '3', 'CEHJ', '1983-12-15', 'RORM', '1961-12-20');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('19', '2022-07-25', '9441.76', '1510.68', '10952.45', '1', 'SAMM', '1985-12-20', 'MASL', '1985-09-16');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('20', '2022-07-25', '10035.99', '1605.75', '11641.75', '2', 'SAMM', '1985-12-20', 'CCO', '1982-05-07');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('21', '2022-07-26', '10636.12', '1701.77', '12337.90', '3', 'SAMM', '1985-12-20', 'FDM', '1999-11-25');
+INSERT INTO Ventas (FolioVenta, Fecha_Venta, Sub_Total, IVA, Total_Pagar, Metodo_Pago, FK_RFC_Nom_Emp, FK_RFC_Fecha_Emp, FK_RFC_Nom_Cliente, FK_RFC_Fecha_Cliente)
+VALUES ('22', '2022-07-27', '11242.15', '1798.74', '13040.90', '1', 'PESB', '1999-10-10', 'SAPS', '1967-05-29');
+
+SELECT COUNT(*) FROM Ventas;
+SELECT * FROM Ventas;
+
+
+-- Carga de datos en la tabla de material vendido
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('2', '360', '720', '396450', '1', 'Equipo completo de inyeccion 8CIL', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('1', '1500', '1500', '286229', '2', 'Equipo completo de inyeccion 6CIL', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('10', '370', '3700', '396450', '3', 'Equipo completo de inyeccion 8CIL', 'Tranferencia');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('5', '110', '550', '201711', '4', 'Filtro de gas', 'Tarjeta');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('3', '460', '1380', '200119', '5', 'Boquillas', 'Tarjeta');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('4', '370', '1480', '286229', '6', 'Equipo completo de inyeccion 6CIL', 'Tarjeta');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('8', '65', '520', '321405', '7', 'Equipo completo de inyeccion 4CIL', 'Tarjeta');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('2', '1550', '3100', '321405', '8', 'Equipo completo de inyeccion 4CIL', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('1', '300', '300', '351552', '9', 'Cuerpo de Aceleracion', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('6', '120', '720', '286089', '10', 'Codos 1/2 ntp a 1/2 fler', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('1', '1550', '1550', '161022', '11', 'Flotador de 16"', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('2', '130', '260', '380851', '12', 'Valvula de vacio', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('10', '15', '150', '321405', '13', 'Equipo completo de inyeccion 4CIL', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('3', '120', '360', '200031', '14', 'Conexiones Hembra', 'Tarjeta');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('8', '360', '2880', '120537', '15', 'Filtro de aire', 'Tranferencia');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('5', '270', '1350', '132457', '16', 'Tanque 100 Lts, valvulas a la cabeza', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('1', '7700', '7700', '155300', '17', 'Repuesto p/ mezclador CA55', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('4', '1986.91', '720', '111704', '18', 'Filtro Interfil', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('4', '2107.35', '1500', '286229', '19', 'Equipo completo de inyeccion 6CIL', 'Efectivo');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('4', '2227.79', '3700', '396450', '20', 'Equipo completo de inyeccion 8CIL', 'Tranferencia');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('4', '2348.23', '550', '286229', '21', 'Equipo completo de inyeccion 6CIL', 'Tarjeta');
+INSERT INTO Material_Vendido (Cantidad, PrecioV, Subtotal, FK_ID_Existencias, FK_Folio_Venta, Material_Vendido, Metodo_Pago)
+VALUES ('4', '2468.67', '1380', '321405', '22', 'Equipo completo de inyeccion 4CIL', 'Tarjeta');
+
+SELECT COUNT(*) FROM Material_Vendido;
+SELECT * FROM Material_Vendido;
