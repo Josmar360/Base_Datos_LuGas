@@ -545,3 +545,4 @@ VALUES ('4', '2468.67', '1380', '321405', '22', 'Equipo completo de inyeccion 4C
 
 SELECT COUNT(*) FROM Material_Vendido;
 SELECT * FROM Material_Vendido;
+
