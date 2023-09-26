@@ -113,7 +113,7 @@ CREATE TABLE Clientes
 );
 
 
--- Crear tabla 
+-- Crear tabla personal
 CREATE TABLE Personal
 (
 	RFCNombre VARCHAR(45) NOT NULL,
@@ -170,6 +170,8 @@ CREATE TABLE Material_Vendido
     Subtotal FLOAT NOT NULL,
     FK_ID_Existencias INT NOT NULL,
     FK_Folio_Venta INT NOT NULL,
+    Material_Vendido VARCHAR(90) NOT NULL,
+    Metodo_Pago VARCHAR(30) NOT NULL,
     CONSTRAINT PRIMARY KEY
     (
 		FK_ID_Existencias,
