@@ -35,10 +35,6 @@ El siguiente repositorio abarca el **diseño, consultas** de una base de datos p
 
 Las capturas de pantalla a continuación destacan puntos clave en el proceso de diseño y desarrollo del proyecto de la base de datos para "LuGas".
 
-## Capturas de pantalla diagrama de relación
-
-![Diagrama de clases](README/2_Diagrama_Clases.png.jpg)
-
 ## Capturas de pantalla de creación y carga de datos
 
 ![Creación estructural](README/3_Creadion_BD.png)
@@ -87,6 +83,7 @@ El presente repositorio representa un proyecto integral de diseño y desarrollo 
 ---
 
 [Josmar Gustavo Palomino Castelan](https://linktr.ee/josmar360)
+
 [Diana Tamara Sanchez Panama](https://github.com/tammy275)
 
 # Información adicional
