@@ -24,7 +24,7 @@ El siguiente repositorio abarca el **diseño, consultas** de una base de datos p
 
 - Estado del Proyecto: ![Porcentaje](https://img.shields.io/badge/Porcentaje-80%25-green)
 - Versión Actual: ![Versión](https://img.shields.io/badge/Versi%C3%B3n-1.0.1-%23AED6F1)
-- Uso de dependencias: ![Dependencias](https://img.shields.io/badge/Ninguna-%23F9853F)
+- Uso de dependencias: ![Dependencias](https://img.shields.io/badge/Dependencia-Ninguna-%23F9853F)
 - Tipo de proyecto: ![Tipo de proyecto](https://img.shields.io/badge/Tipo%20de%20proyecto-Base%20de%20datos-%23EBDEF0)
 - Categoría del proyecto: ![Categoria del proyecto](https://img.shields.io/badge/Categor%C3%ADa-Servicios%20para%20autos-%23FAD7A0%20)
 - Tipo de base de datos: ![Tipo de base de datos](https://img.shields.io/badge/Base%20de%20datos-MySQL-%20%2382E0AA%20)
